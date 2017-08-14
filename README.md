@@ -101,7 +101,8 @@ We strongly encourage you to work all together on a set of tests
 
 ## Project Breakdown
 
-1. push, pall (Mandatory)
+### 1. push, pall (Mandatory)
+
 <p>Implement the <code>push</code> and <code>pall</code> opcodes.</p>
 <p><strong>Monty byte code files</strong></p>
 
@@ -205,7 +206,7 @@ julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$ ./monty bytecodes/00.m
 julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$
 </code></pre>
 
-2. pint (Mandatory)
+### 2. pint (Mandatory)
 <p>Implement the <code>pint</code> opcode.</p>
 <p>The opcode <code>pint</code> prints the value at the top of the stack, followed by a new line.</p>
 
@@ -228,7 +229,7 @@ julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$ ./monty bytecodes/06.m
 julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$ 
 </code></pre>
 
-3. pop (Mandatory)
+### 3. pop (Mandatory)
 <p>Implement the <code>pop</code> opcode.</p>
 <p><strong>The pop opcode</strong></p>
 
@@ -260,7 +261,7 @@ julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$ ./monty bytecodes/07.m
 julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$ 
 </code></pre>
 
-4. swap (Mandatory)
+### 4. swap (Mandatory)
 <p>Implement the <code>swap</code> opcode.</p>
 <p><strong>The swap opcode</strong></p>
 
@@ -288,7 +289,7 @@ julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$ ./monty bytecodes/09.m
 julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$ 
 </code></pre>
 
-5. add (Mandatory)
+### 5. add (Mandatory)
 <p>Implement the <code>add</code> opcode.</p>
 <p><strong>The add opcode</strong></p>
 
@@ -322,7 +323,7 @@ julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$ ./monty bytecodes/12.m
 julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$
 </code></pre>
 
-6. nop (Mandatory)
+### 6. nop (Mandatory)
 <p>Implement the <code>nop</code> opcode.</p>
 <p><strong>The nop opcode</strong></p>
 
