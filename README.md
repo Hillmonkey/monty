@@ -1,6 +1,6 @@
 # <img src="https://www.holbertonschool.com/assets/holberton-logo-simplified-71b02868461c07d54553e4a7cc05d1926681a6755cc19030b0458f2d70ae9909.png" width="30"> Monty Project (0x18: C - Stacks, Queues - LIFO, FIFO)
 
-**Authors: [Thomas Wang](https://www.linkedin.com/in/thomaspwang/) and [Larry Madeo](https://www.linkedin.com/in/larry-madeo-904a7129/)
+**Authors: [Thomas Wang](https://www.linkedin.com/in/thomaspwang/) and [Larry Madeo](https://www.linkedin.com/in/larry-madeo-904a7129/)**
 
 <img src ="https://pbs.twimg.com/media/CFYYWy6UEAE9Ow-.png" width
 ="300">
