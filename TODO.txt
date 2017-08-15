@@ -1,0 +1,10 @@
+TODO
+
+* figure out submodule
+* extract tokens from each line
+	* use token[0] for all op_codes
+	* token[1] needs to get put into external push_operand variable
+
+* build all the op_code functions
+* build the function that calls the op_code functions
+* build struct that links the op_codes to the op_code functions
