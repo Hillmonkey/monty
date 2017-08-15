@@ -41,10 +41,34 @@ void pall(stack_t *h)
 }
 
 /**
- * pop - prints value at top of stack
+ * pint - prints value at top of stack
  * @h: beginning of stack
  * Return: nothing
  */
 void pint(stack_t *h)
 
 	printf("%d\n", h->n);
+
+/**
+ * pop - removes top element of stack
+ * @h: beginning of stack
+ * Return: nothing
+ */
+void pop(stack_t **stack)
+{
+	int top, status;
+	unsigned int ret;
+
+	if (top == -1)
+	{
+		ret = 0;
+		status = 0;
+	}
+	else
+	{
+		status = 1;
+		ret = stack[top];
+		--top;
+	}
+	return(ret);
+}
