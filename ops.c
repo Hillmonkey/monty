@@ -21,7 +21,6 @@ void push(stack_t **stack, unsigned int line_number)
 	if (element->next != NULL)
 		(element->next)->prev = element;
 	*stack = element;
-	return (element);
 }
 
 /**
@@ -39,5 +38,13 @@ void pall(stack_t *h)
 		h = h->next;
 		count++;
 	}
-	return (count);
 }
+
+/**
+ * pop - prints value at top of stack
+ * @h: beginning of stack
+ * Return: nothing
+ */
+void pint(stack_t *h)
+
+	printf("%d\n", h->n);
