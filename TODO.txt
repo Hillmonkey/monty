@@ -1,6 +1,5 @@
 TODO
 
-* figure out submodule
 * extract tokens from each line
 	* use token[0] for all op_codes
 	* token[1] needs to get put into external push_operand variable
