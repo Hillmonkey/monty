@@ -1,41 +1,20 @@
 #include "monty.h"
 
-/**
- * init_ops - initialize the global array of ops
- *
- **/
-int init_ops(void)
+void stack_init(stack_t **head)
 {
-	/* this needs to be  malloc'ed like printf */
-	instruction_t ops[] = {
-		{"push", push},
-		{"pop", pop},
-		{"pint", pint},
-		{"pall", pall},
-		{"swap", swap},
-		{"add", add},
-		{"nop", nop},
-		{NULL, NULL}
-	};
-
+	*head = NULL
 }
-
-/**
- * main - monty bytecode parser
- * @argc: number of command line arguments
- * @argv: array of command line argument strings
- * Return: int for EXIT_SUCCESS or EXIT_FAILURE
- **/
 
 int main(int argc, char **argv)
 {
-	stack_t *stack;
+	stack_t *head;
 	if (argc != 2)
 	{
 		printf("USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-	process_file(argv[1], glob);
+	stack_init(&head);
+	process_file(argv[1], &head);
 	/* for line in file */
 		/* I'm supposed to malloc for each line? */
 		/* for MVP, I will have a buffer of pre-determined size */

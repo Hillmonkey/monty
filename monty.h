@@ -51,17 +51,27 @@ typedef struct glob_s
 {
 	stack_t *top;
 	char *token[2];
-	/* if this gets malloc'ed, maybe no need for it in global glob */
-	instruction_t *ops[]
-	return (EXIT_SUCCESS)
-}
+	/* instruction_t *ops[] */
+} glob_t;
 
 extern glob_t *glob;
 
 /* helper1.c */
-int process_file(char *filename, glob_t glob);
+int process_file(char *filename, stack_t **stack);
 
 /* helper2.c */
-int delegate_op(unsigned int line_number);
+int delegate_op(stack_t **stack, char *op, char *operand,
+				unsigned int line_number);
+
+/* instruction.c */
+void instruction_push(stack_t **stack, unsigned int line_number);
+void instruction_pop(stack_t **stack, unsigned int line_number);
+void instruction_pint(stack_t **stack, unsigned int line_number);
+void instruction_pall(stack_t **stack, unsigned int line_number);
+void instruction_swap(stack_t **stack, unsigned int line_number);
+
+/* instruction2.c */
+void instruction_add(stack_t **stack, unsigned int line_number);
+void instruction_nop(stack_t **stack, unsigned int line_number);
 
 #endif /* MONTY */

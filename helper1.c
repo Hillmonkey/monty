@@ -5,14 +5,15 @@
  * @filename: str name of monty opcode file
  * Return: return an error code or success
  **/
-int process_file(char *filename)
+int process_file(char *filename, stack_t **stack)
 {
 	size_t len;
 	ssize_t read;
 	unsigned int line_number = 0;
 	char *line = NULL;
 	FILE *fp;
-	char *token[2];
+	char *oper, *operand = NULL;
+
 
 	if (!filename)
 	{
@@ -28,13 +29,15 @@ int process_file(char *filename)
 	while ((read = getline(&line, &len, fp)) != -1)
 	{
 		printf("%s", line);
-		/* do these need to be malloc'ed for ??? */
-		glob->token[0] = strtok(line, DELIMS);
-		glob->token[1] = strtok(NULL, DELIMS);
-		printf("<TOKEN1> %s <TOKEN2> %s <--\n", glob->token[0], glob->token[1]);
-		delegate_op(line_number);
+		oper = strndup(strtok(line, DELIMS), 128);
+		if (operator != NULL)
+			operand = strdup(strtok(NULL, DELIMS));
+		/* how does printf deal with printing a NULL pointer? */
+		printf("<TOKEN1> %s <TOKEN2> %s <--\n", operator, operand);
 		line_number++;
-		/* printf("Retrieved line of length %lu\n", read); */
+		delegate_op(stack, oper, operand, line_number);
+		free(oper);
+		free(operand);
 	}
 	free(line);
 	fclose(fp);
