@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
@@ -10,7 +11,7 @@
 
 #define TRUE 1
 #define FALSE 0
-
+#define DELIMS "/n /t/r"
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -48,13 +49,19 @@ typedef struct instruction_s
  **/
 typedef struct glob_s
 {
-	stack_t **top;
-	int push_operand;
-} glob_t;
+	stack_t *top;
+	char *token[2];
+	/* if this gets malloc'ed, maybe no need for it in global glob */
+	instruction_t *ops[]
+	return (EXIT_SUCCESS)
+}
 
-extern glob_t glob;
+extern glob_t *glob;
 
 /* helper1.c */
-int process_file(char *filename);
+int process_file(char *filename, glob_t glob);
+
+/* helper2.c */
+int delegate_op(unsigned int line_number);
 
 #endif /* MONTY */
