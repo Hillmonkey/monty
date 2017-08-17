@@ -1,12 +1,7 @@
 TODO
 
-* extract tokens from each line
-	* use token[0] for all op_codes
-	* token[1] needs to get put into external push_operand variable
-
 * build all the op_code functions
-* build the function that calls the op_code functions
-* build struct that links the op_codes to the op_code functions
+	2 more mandatory op_codes
 
 ====================================
 3 spots for global variable:
@@ -16,13 +11,12 @@ TODO
 	you can have an global init func
 Why is global needed?
 	tracking line number, maybe?
-	
+	tracking pointers that need to be freed	
 
 * free all the nodes of the stack in exit function
 	the nodes get created in the push function
 	maybe that's where they can be tracked from, for
 	eventual freeing ...
-* per Tanya - substitute strtol for atoi
 * since atexit requires a func of the form:
 	void func(void) ...
 	you need a global variable to free things from atexit func
