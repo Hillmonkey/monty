@@ -7,3 +7,20 @@ TODO
 * build all the op_code functions
 * build the function that calls the op_code functions
 * build struct that links the op_codes to the op_code functions
+
+====================================
+3 spots for global variable:
+	build struct in header
+	declare global glob_t glob in header
+	declare again (only once) at top of main file
+	you can have an global init func
+
+* free all the nodes of the stack in exit function
+	the nodes get created in the push function
+	maybe that's where they can be tracked from, for
+	eventual freeing ...
+* per Tanya - substitute strtol for atoi
+* since atexit requires a func of the form:
+	void func(void) ...
+	you need a global variable to free things from atexit func
+		(if you use the global variable)
