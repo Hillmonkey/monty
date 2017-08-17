@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
@@ -10,7 +11,7 @@
 
 #define TRUE 1
 #define FALSE 0
-
+#define DELIMS "/n /t/r"
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -45,16 +46,31 @@ typedef struct instruction_s
  * struct glob_s - globally useful variables, all rolled into one
  * @top: double pointer to top of stack
  * @push_operand: push needs data outside of its proscribed prototype
- **/
 typedef struct glob_s
 {
-	stack_t **top;
-	int push_operand;
+	stack_t *top;
+	char *token[2];
+	instruction_t *ops[]
 } glob_t;
 
-extern glob_t glob;
+extern glob_t *glob;
+**/
 
 /* helper1.c */
-int process_file(char *filename);
+int process_file(char *filename, stack_t **stack);
+
+/* helper2.c */
+int delegate_op(stack_t **stack, char *op, unsigned int line_number);
+
+/* instruction.c */
+void instruction_push(stack_t **stack, unsigned int line_number);
+void instruction_pop(stack_t **stack, unsigned int line_number);
+void instruction_pint(stack_t **stack, unsigned int line_number);
+void instruction_pall(stack_t **stack, unsigned int line_number);
+void instruction_swap(stack_t **stack, unsigned int line_number);
+
+/* instruction2.c */
+void instruction_add(stack_t **stack, unsigned int line_number);
+void instruction_nop(stack_t **stack, unsigned int line_number);
 
 #endif /* MONTY */
