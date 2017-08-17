@@ -12,14 +12,19 @@ void instruction_push(stack_t **stack, unsigned int line_number)
 	char *oper;
 	int num;
 
-	printf("TOMMYTOMMY-PUSHPUSHPUSH\n");
+	if (element == NULL)
+	{
+		printf("Error: malloc failed");
+		exit(EXIT_FAILURE);
+	}
+	/* printf("TOMMYTOMMY-PUSHPUSHPUSH\n"); */
 	oper = strtok(NULL, DELIMS);
-	if (oper == NULL || element == NULL || stack == NULL)
+	if (oper == NULL || stack == NULL)
 	{
 		printf("L%ud: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	num = atoi(oper);
+	num = _strtol(oper, line_number);
 	element->n = num;
 	element->prev = NULL;
 	element->next = *stack;
@@ -39,7 +44,7 @@ void instruction_pall(stack_t **stack, unsigned int line_number)
 	stack_t *element = *stack;
 	(void)(line_number);
 
-	printf("TOMMYTOMMY-PALLPALLPALL\n");
+	/* printf("TOMMYTOMMY-PALLPALLPALL\n"); */
 	while (element != NULL)
 	{
 		printf("%d\n", element->n);
@@ -57,12 +62,13 @@ void instruction_pint(stack_t **stack, unsigned int line_number)
 {
 	stack_t *element = *stack;
 
-	printf("TOMMYTOMMY-PINTPINTPINT\n");
+	/* printf("TOMMYTOMMY-PINTPINTPINT\n"); */
 	if (element == NULL || stack == NULL)
 	{
 		printf("L%ud: can't pint, stack empty", line_number);
 		exit(EXIT_FAILURE);
 	}
+	printf("PINT-DEBUG ");
 	printf("%d\n", element->n);
 }
 
@@ -76,7 +82,7 @@ void instruction_pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *element = *stack;
 
-	printf("TOMMYTOMMY-POPPOPPOPPOP\n");
+	/* printf("TOMMYTOMMY-POPPOPPOPPOP\n"); */
 	if (element == NULL || stack == NULL)
 	{
 		printf("L%ud: can't pop an empty stack", line_number);
@@ -94,7 +100,7 @@ void instruction_pop(stack_t **stack, unsigned int line_number)
 void instruction_swap(stack_t **stack, unsigned int line_number)
 {
 
-	printf("TOMMYTOMMY-SWAPSWAPSWAP\n");
+	/* printf("TOMMYTOMMY-SWAPSWAPSWAP\n"); */
 	(void)line_number;
 	(*stack)->prev = (*stack)->next;
 	(*stack)->next = (*stack)->next->next;

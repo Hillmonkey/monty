@@ -8,10 +8,13 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <errno.h>
+#include <limits.h>
+#include <ctype.h>
 
 #define TRUE 1
 #define FALSE 0
-#define DELIMS "/n /t/r"
+#define DELIMS "\n \t\r"
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -72,5 +75,8 @@ void instruction_swap(stack_t **stack, unsigned int line_number);
 /* instruction2.c */
 void instruction_add(stack_t **stack, unsigned int line_number);
 void instruction_nop(stack_t **stack, unsigned int line_number);
+
+/* _strtol.c */
+int _strtol(char *num_string, unsigned int line_number);
 
 #endif /* MONTY */
