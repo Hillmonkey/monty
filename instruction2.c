@@ -8,7 +8,6 @@
  **/
 void instruction_add(stack_t **stack, unsigned int line_number)
 {
-	stack_t *element_1, *element_2;
 	stack_t *element = malloc(sizeof(stack_t));
 	int n_1, n_2;
 
@@ -20,7 +19,7 @@ void instruction_add(stack_t **stack, unsigned int line_number)
 	n_1 = (*stack)->n;
 	instruction_pop(stack, line_number);
 	n_2 = (*stack)->n;
-        instruction_pop(stack, line_number);
+		instruction_pop(stack, line_number);
 	element->n = n_1 + n_2;
 	element->prev = NULL;
 	element->next = *stack;
@@ -37,5 +36,6 @@ void instruction_add(stack_t **stack, unsigned int line_number)
  **/
 void instruction_nop(stack_t **stack, unsigned int line_number)
 {
-	return;
+	(void)(stack);
+	(void)(line_number);
 }
