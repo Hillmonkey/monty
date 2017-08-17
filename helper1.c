@@ -13,7 +13,7 @@ int process_file(char *filename, stack_t **stack)
 	unsigned int line_number = 0;
 	char *line = NULL;
 	FILE *fp;
-	char *oper, *operand = NULL;
+	char *op;
 
 
 	if (!filename)
@@ -29,14 +29,13 @@ int process_file(char *filename, stack_t **stack)
 	}
 	while ((read = getline(&line, &len, fp)) != -1)
 	{
-		/* printf("%s", line); */
-		oper = strdup(strtok(line, DELIMS));
-		/* printf("<TOKEN1> %s  %u<--\n", oper, line_number); */
+		/*printf("%s", line); */
+		op = strtok(line, DELIMS);
+		/* printf("<TOKEN1> %s  %u<--\n", op, line_number); */
 		line_number++;
-		/* printf("%s (%u) ", oper, line_number); */
-		delegate_op(stack, oper, line_number);
-		free(oper);
-		free(operand);
+		/* printf("%s (%u) ", op, line_number); */
+		if (op)
+			delegate_op(stack, op, line_number);
 	}
 	free(line);
 	fclose(fp);
