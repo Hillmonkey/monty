@@ -40,7 +40,7 @@ void instruction_pall(stack_t **stack, unsigned int line_number)
 	(void)(line_number);
 
 	printf("TOMMYTOMMY-PALLPALLPALL\n");
-	while (stack != NULL)
+	while (element != NULL)
 	{
 		printf("%d\n", element->n);
 		element = element->next;

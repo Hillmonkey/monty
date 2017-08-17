@@ -33,6 +33,7 @@ int process_file(char *filename, stack_t **stack)
 		oper = strdup(strtok(line, DELIMS));
 		/* printf("<TOKEN1> %s  %u<--\n", oper, line_number); */
 		line_number++;
+		printf("%s (%u) ", oper, line_number);
 		delegate_op(stack, oper, line_number);
 		free(oper);
 		free(operand);
