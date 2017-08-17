@@ -3,6 +3,7 @@
 /**
  * process_file - process the whole monty file
  * @filename: str name of monty opcode file
+ * @stack: double pointer to top of stack data struct
  * Return: return an error code or success
  **/
 int process_file(char *filename, stack_t **stack)
@@ -29,13 +30,10 @@ int process_file(char *filename, stack_t **stack)
 	while ((read = getline(&line, &len, fp)) != -1)
 	{
 		printf("%s", line);
-		oper = strndup(strtok(line, DELIMS), 128);
-		if (operator != NULL)
-			operand = strdup(strtok(NULL, DELIMS));
-		/* how does printf deal with printing a NULL pointer? */
-		printf("<TOKEN1> %s <TOKEN2> %s <--\n", operator, operand);
+		oper = strdup(strtok(line, DELIMS));
+		printf("<TOKEN1> %s <TOKEN2> %s <--\n", oper, operand);
 		line_number++;
-		delegate_op(stack, oper, operand, line_number);
+		delegate_op(stack, oper, line_number);
 		free(oper);
 		free(operand);
 	}

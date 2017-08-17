@@ -46,22 +46,21 @@ typedef struct instruction_s
  * struct glob_s - globally useful variables, all rolled into one
  * @top: double pointer to top of stack
  * @push_operand: push needs data outside of its proscribed prototype
- **/
 typedef struct glob_s
 {
 	stack_t *top;
 	char *token[2];
-	/* instruction_t *ops[] */
+	instruction_t *ops[]
 } glob_t;
 
 extern glob_t *glob;
+**/
 
 /* helper1.c */
 int process_file(char *filename, stack_t **stack);
 
 /* helper2.c */
-int delegate_op(stack_t **stack, char *op, char *operand,
-				unsigned int line_number);
+int delegate_op(stack_t **stack, char *op, unsigned int line_number);
 
 /* instruction.c */
 void instruction_push(stack_t **stack, unsigned int line_number);
