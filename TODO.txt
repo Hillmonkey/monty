@@ -14,6 +14,9 @@ TODO
 	declare global glob_t glob in header
 	declare again (only once) at top of main file
 	you can have an global init func
+Why is global needed?
+	tracking line number, maybe?
+	
 
 * free all the nodes of the stack in exit function
 	the nodes get created in the push function
