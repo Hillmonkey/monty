@@ -9,21 +9,21 @@
 void instruction_push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *element = malloc(sizeof(stack_t));
-	char *oper;
+	char *op;
 	int num;
 
 	if (element == NULL)
 	{
-		printf("Error: malloc failed");
+		printf("Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-	oper = strtok(NULL, DELIMS);
-	if (oper == NULL || stack == NULL)
+	op = strtok(NULL, DELIMS);
+	if (op == NULL || !stack || !(*stack))
 	{
-		printf("L%ud: usage: push integer\n", line_number);
+		printf("L%u: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	num = _strtol(oper, line_number);
+	num = _strtol(op, line_number);
 	element->n = num;
 	element->prev = NULL;
 	element->next = *stack;
@@ -58,14 +58,12 @@ void instruction_pall(stack_t **stack, unsigned int line_number)
  */
 void instruction_pint(stack_t **stack, unsigned int line_number)
 {
-	stack_t *element = *stack;
-
-	if (element == NULL || stack == NULL)
+	if (stack == NULL || *stack == NULL)
 	{
-		printf("L%u: can't pint, stack empty", line_number);
+		printf("L%u: can't pint, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	printf("%d\n", element->n);
+	printf("%d\n", (*stack)->n);
 }
 
 /**
