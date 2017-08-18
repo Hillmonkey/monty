@@ -100,6 +100,11 @@ void instruction_div(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	n_1 = (*stack)->n;
+	if (n1 == 0)
+	{
+		printf("L%u: division by zero\n", line_number);
+		exit(EXIT_FAILURE);
+	}
 	instruction_pop(stack, line_number);
 	n_2 = (*stack)->n;
 	instruction_pop(stack, line_number);
