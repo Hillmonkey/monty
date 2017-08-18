@@ -75,6 +75,9 @@ void instruction_swap(stack_t **stack, unsigned int line_number);
 /* instruction2.c */
 void instruction_add(stack_t **stack, unsigned int line_number);
 void instruction_nop(stack_t **stack, unsigned int line_number);
+void instruction_sub(stack_t **stack, unsigned int line_number);
+void instruction_div(stack_t **stack, unsigned int line_number);
+void instruction_mul(stack_t **stack, unsigned int line_number);
 
 /* _strtol.c */
 int _strtol(char *num_string, unsigned int line_number);

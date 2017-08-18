@@ -18,6 +18,9 @@ int delegate_op(stack_t **stack, char *op, unsigned int line_number)
 		{"swap", instruction_swap},
 		{"add", instruction_add},
 		{"nop", instruction_nop},
+		{"sub", instruction_sub},
+		{"div", instruction_div},
+		{"mul", instruction_mul},
 		{NULL, NULL}
 	};
 
@@ -36,5 +39,3 @@ int delegate_op(stack_t **stack, char *op, unsigned int line_number)
 	}
 	return (EXIT_SUCCESS);
 }
-
-
