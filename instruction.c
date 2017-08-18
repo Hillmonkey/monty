@@ -18,7 +18,7 @@ void instruction_push(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	op = strtok(NULL, DELIMS);
-	if (op == NULL || !stack || !(*stack))
+	if (op == NULL || stack == NULL || *stack == NULL)
 	{
 		printf("L%u: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
