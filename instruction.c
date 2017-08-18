@@ -62,7 +62,7 @@ void instruction_pint(stack_t **stack, unsigned int line_number)
 
 	if (element == NULL || stack == NULL)
 	{
-		printf("L%ud: can't pint, stack empty", line_number);
+		printf("L%u: can't pint, stack empty", line_number);
 		exit(EXIT_FAILURE);
 	}
 	printf("%d\n", element->n);
@@ -76,15 +76,16 @@ void instruction_pint(stack_t **stack, unsigned int line_number)
  */
 void instruction_pop(stack_t **stack, unsigned int line_number)
 {
-	stack_t *element = *stack;
+	stack_t *node;
 
-	if (element == NULL || stack == NULL)
+	if (stack == NULL || *stack == NULL)
 	{
-		printf("L%ud: can't pop an empty stack", line_number);
+		printf("L%u: can't pop an empty stack\n", line_number);
 		exit(EXIT_FAILURE);
 	}
+	node  = *stack;
 	(*stack) = (*stack)->next;
-	free(element);
+	free(node);
 }
 
 /**
@@ -97,7 +98,7 @@ void instruction_swap(stack_t **stack, unsigned int line_number)
 	stack_t *tmp;
 
 	(void)line_number;
-	if (!(*stack) || !(*stack)->next)
+	if (!(*stack) || !((*stack)->next))
 	{
 		printf("L%ud: can't swap, stack too short\n", line_number);
 		exit(EXIT_FAILURE);

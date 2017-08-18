@@ -11,6 +11,11 @@ void instruction_add(stack_t **stack, unsigned int line_number)
 	stack_t *element = malloc(sizeof(stack_t));
 	int n_1, n_2;
 
+	if (element == NULL)
+	{
+		printf("Error: malloc failed\n");
+		exit(EXIT_FAILURE);
+	}
 	if (stack == NULL)
 	{
 		printf("L%u: can't add, stack too short\n", line_number);

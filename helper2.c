@@ -29,7 +29,12 @@ int delegate_op(stack_t **stack, char *op, unsigned int line_number)
 			return (EXIT_SUCCESS);
 		}
 	}
-	return (EXIT_FAILURE);
+	if (strlen(op) != 0)
+	{
+		printf("L%u: unknown instruction %s\n", line_number, op);
+		exit(EXIT_FAILURE);
+	}
+	return (EXIT_SUCCESS);
 }
 
 
