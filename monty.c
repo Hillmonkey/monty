@@ -22,15 +22,13 @@ void free_all(void)
 	stack_t *tmp1, *tmp2 = NULL;
 
 	tmp1 = *(glob.top);
-	printf("glob.top->%p\n",  (void*)glob.top);
-	if (tmp1 != NULL)
+	/* printf("glob.top->%p\n",  (void*)glob.top); */
+	while (tmp1 != NULL)
+	{
 		tmp2 = tmp1->next;
-		while (tmp1 != NULL)
-		{
-			tmp2 = tmp1->next;
-			free(tmp1);
-			tmp1 = tmp2;
-		}
+		free(tmp1);
+		tmp1 = tmp2;
+	}
 }
 
 /**
@@ -49,7 +47,6 @@ int main(int argc, char **argv)
 		printf("USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-	stack_init(&head);
 	process_file(argv[1], &head);
-	return (EXIT_SUCCESS);
+	exit(EXIT_SUCCESS);
 }
