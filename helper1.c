@@ -27,6 +27,7 @@ int process_file(char *filename, stack_t **stack)
 		printf("Error: Can't open file %s\n", filename);
 		exit(EXIT_FAILURE);
 	}
+	atexit(free_all);
 	while ((read = getline(&line, &len, fp)) != -1)
 	{
 		/*printf("%s", line); */
