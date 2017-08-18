@@ -18,14 +18,14 @@ int process_file(char *filename, stack_t **stack)
 
 	if (!filename)
 	{
-		printf("Error: Can't open file (nil)\n");
-		return (EXIT_FAILURE);
+		printf("Error: Can't open file %s\n", filename);
+		exit(EXIT_FAILURE);
 	}
 	fp = fopen(filename, "r");
 	if (fp == NULL)
 	{
 		printf("Error: Can't open file %s\n", filename);
-		return (EXIT_FAILURE);
+		exit(EXIT_FAILURE);
 	}
 	while ((read = getline(&line, &len, fp)) != -1)
 	{
