@@ -68,7 +68,7 @@ int process_file(char *filename, stack_t **stack);
 /* helper2.c */
 int delegate_op(stack_t **stack, char *op, unsigned int line_number);
 
-/* instruction.c */
+/* instruction1.c */
 void instruction_push(stack_t **stack, unsigned int line_number);
 void instruction_pop(stack_t **stack, unsigned int line_number);
 void instruction_pint(stack_t **stack, unsigned int line_number);
@@ -81,9 +81,12 @@ void instruction_nop(stack_t **stack, unsigned int line_number);
 void instruction_sub(stack_t **stack, unsigned int line_number);
 void instruction_div(stack_t **stack, unsigned int line_number);
 void instruction_mul(stack_t **stack, unsigned int line_number);
+
+/* instruction3.c */
 void instruction_mod(stack_t **stack, unsigned int line_number);
 
 /* _strtol.c */
+int is_leading_digit(char ascii_char);
 int _strtol(char *num_string, unsigned int line_number);
 
 #endif /* MONTY */

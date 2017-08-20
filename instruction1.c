@@ -98,7 +98,7 @@ void instruction_swap(stack_t **stack, unsigned int line_number)
 	(void)line_number;
 	if (!(*stack) || !((*stack)->next))
 	{
-		printf("L%ud: can't swap, stack too short\n", line_number);
+		printf("L%u: can't swap, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	tmp = (*stack)->next;
