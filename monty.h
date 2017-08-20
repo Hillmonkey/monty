@@ -84,6 +84,7 @@ void instruction_mul(stack_t **stack, unsigned int line_number);
 
 /* instruction3.c */
 void instruction_mod(stack_t **stack, unsigned int line_number);
+void instruction_pchar(stack_t **stack, unsigned int line_number);
 
 /* _strtol.c */
 int is_leading_digit(char ascii_char);

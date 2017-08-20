@@ -22,6 +22,7 @@ void delegate_op(stack_t **stack, char *op, unsigned int line_number)
 		{"div", instruction_div},
 		{"mul", instruction_mul},
 		{"mod", instruction_mod},
+		{"pchar", instruction_pchar},
 		{NULL, NULL}
 	};
 
@@ -38,6 +39,5 @@ void delegate_op(stack_t **stack, char *op, unsigned int line_number)
 		printf("L%u: unknown instruction %s\n", line_number, op);
 		exit(EXIT_FAILURE);
 	}
-	
 	/* success if you got this far */
 }
