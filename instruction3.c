@@ -21,6 +21,8 @@ void instruction_mod(stack_t **stack, unsigned int line_number)
 	{
 		printf("L%u: division by zero\n", line_number);
 		exit(EXIT_FAILURE);
+	}
 	instruction_pop(stack, line_number);
 	(*stack)->n %= tmp;
+	
 }
