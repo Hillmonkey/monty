@@ -66,7 +66,7 @@ void free_all(void);
 int process_file(char *filename, stack_t **stack);
 
 /* helper2.c */
-int delegate_op(stack_t **stack, char *op, unsigned int line_number);
+void delegate_op(stack_t **stack, char *op, unsigned int line_number);
 
 /* instruction1.c */
 void instruction_push(stack_t **stack, unsigned int line_number);

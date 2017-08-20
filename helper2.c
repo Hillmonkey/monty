@@ -7,7 +7,7 @@
  * @line_number: line in byte-code file being processed, zero indexed
  * Return: int for mysterious purposes
  **/
-int delegate_op(stack_t **stack, char *op, unsigned int line_number)
+void delegate_op(stack_t **stack, char *op, unsigned int line_number)
 {
 	int i = 0;
 	instruction_t all_ops[] = {
@@ -30,13 +30,14 @@ int delegate_op(stack_t **stack, char *op, unsigned int line_number)
 		if (strcmp(op, all_ops[i].opcode) == 0)
 		{
 			all_ops[i].f(stack, line_number);
-			return (EXIT_SUCCESS);
+			return;
 		}
 	}
-	if (strlen(op) != 0)
+	if (strlen(op) != 0 && op[0] != '#')
 	{
 		printf("L%u: unknown instruction %s\n", line_number, op);
 		exit(EXIT_FAILURE);
 	}
-	return (EXIT_SUCCESS);
+	
+	/* success if you got this far */
 }
