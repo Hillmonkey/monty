@@ -48,7 +48,7 @@ typedef struct instruction_s
 /**
  * struct glob_s - globally useful variables, all rolled into one
  * @top: double pointer to top of stack
- * @push_operand: push needs data outside of its proscribed prototype
+ * @ops: double pointer to an instruction struct
 **/
 typedef struct glob_s
 {
