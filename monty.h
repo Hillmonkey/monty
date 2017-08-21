@@ -12,6 +12,7 @@
 #include <limits.h>
 #include <ctype.h>
 
+#define UNUSED(x) (void)(x)
 #define TRUE 1
 #define FALSE 0
 #define DELIMS "\n \t\r"
@@ -85,6 +86,7 @@ void instruction_mul(stack_t **stack, unsigned int line_number);
 /* instruction3.c */
 void instruction_mod(stack_t **stack, unsigned int line_number);
 void instruction_pchar(stack_t **stack, unsigned int line_number);
+void instruction_pstr(stack_t **stack, unsigned int line_number);
 
 /* _strtol.c */
 int is_leading_digit(char ascii_char);

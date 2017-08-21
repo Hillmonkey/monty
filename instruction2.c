@@ -29,8 +29,8 @@ void instruction_add(stack_t **stack, unsigned int line_number)
  **/
 void instruction_nop(stack_t **stack, unsigned int line_number)
 {
-	(void)(stack);
-	(void)(line_number);
+	UNUSED(stack);
+	UNUSED(line_number);
 }
 
 /**

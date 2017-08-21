@@ -41,8 +41,8 @@ void instruction_push(stack_t **stack, unsigned int line_number)
 void instruction_pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *element = *stack;
-	(void)(line_number);
 
+	UNUSED(line_number);
 	while (element != NULL)
 	{
 		printf("%d\n", element->n);
@@ -95,7 +95,7 @@ void instruction_swap(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp;
 
-	(void)line_number;
+	UNUSED(line_number);
 	if (!(*stack) || !((*stack)->next))
 	{
 		printf("L%u: can't swap, stack too short\n", line_number);
