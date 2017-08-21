@@ -88,6 +88,7 @@ void instruction_mod(stack_t **stack, unsigned int line_number);
 void instruction_pchar(stack_t **stack, unsigned int line_number);
 void instruction_pstr(stack_t **stack, unsigned int line_number);
 void instruction_rotl(stack_t **stack, unsigned int line_number);
+void instruction_rotr(stack_t **stack, unsigned int line_number);
 
 /* _strtol.c */
 int is_leading_digit(char ascii_char);

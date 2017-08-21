@@ -78,7 +78,7 @@ void instruction_pstr(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * instruction_rotl - top element becomes last, 2nd becomes top of stack
+ * instruction_rotl - all elements rotate left, top element becomes last
  * @stack: double pointer to top of stack
  * @line_number: what line in the monty bytecode file are we at?
  **/
@@ -99,3 +99,23 @@ void instruction_rotl(stack_t **stack, unsigned int line_number)
 	(*stack) = new_top;
 }
 
+/**
+ * instruction_rotr - all elements rotate right, bottom element becomes first
+ * @stack: double pointer to top of stack
+ * @line_number: what line in the monty bytecode file are we at?
+ **/
+void instruction_rotr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *tmp = *stack;
+
+	UNUSED(line_number);
+	if (*stack == NULL || (*stack)->next == NULL)
+		return;
+	while (tmp->next != NULL)
+		tmp = tmp->next;
+	tmp->next = *stack;
+	tmp->prev->next = NULL;
+	tmp->prev = NULL;
+	(*stack)->prev = tmp;
+	(*stack) = tmp;
+}
