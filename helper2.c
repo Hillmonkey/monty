@@ -26,6 +26,8 @@ void delegate_op(stack_t **stack, char *op, unsigned int line_number)
 		{"pstr", instruction_pstr},
 		{"rotl", instruction_rotl},
 		{"rotr", instruction_rotr},
+		{"stack", instruction_stack},
+		{"queue", instruction_queue},
 		{NULL, NULL}
 	};
 

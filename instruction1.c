@@ -8,7 +8,7 @@
  */
 void instruction_push(stack_t **stack, unsigned int line_number)
 {
-	stack_t *element = malloc(sizeof(stack_t));
+	stack_t *tmp, *element = malloc(sizeof(stack_t));
 	char *op;
 	int num;
 
@@ -25,11 +25,25 @@ void instruction_push(stack_t **stack, unsigned int line_number)
 	}
 	num = _strtol(op, line_number);
 	element->n = num;
-	element->prev = NULL;
-	element->next = *stack;
-	if (element->next != NULL)
-		(element->next)->prev = element;
-	*stack = element;
+	if (!(glob.isqueue))
+	{
+		element->prev = NULL;
+		element->next = *stack;
+	 	if (*stack != NULL)
+			(*stack)->prev = element;
+		*stack = element;
+	}
+	else
+	{
+		tmp = *stack;
+		while (tmp != NULL && tmp->next != NULL)
+			tmp = tmp->next;
+		if (tmp->next != NULL)
+			tmp->next = element;
+		element->prev = tmp;
+		element->next = NULL;
+	}
+		
 }
 
 /**
@@ -81,8 +95,10 @@ void instruction_pop(stack_t **stack, unsigned int line_number)
 		printf("L%u: can't pop an empty stack\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	node  = *stack;
-	(*stack) = (*stack)->next;
+	node = *stack;
+	*stack = (*stack)->next;
+	if (*stack != NULL)
+		(*stack)->prev = NULL;
 	free(node);
 }
 

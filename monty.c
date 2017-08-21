@@ -10,6 +10,7 @@ void stack_init(stack_t **head)
 {
 	*head = NULL;
 	glob.top = head;
+	glob.isqueue = FALSE;
 }
 
 /**

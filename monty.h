@@ -55,6 +55,7 @@ typedef struct glob_s
 {
 	stack_t **top;
 	instruction_t **ops;
+	int isqueue;
 } glob_t;
 
 extern glob_t glob;
@@ -89,6 +90,10 @@ void instruction_pchar(stack_t **stack, unsigned int line_number);
 void instruction_pstr(stack_t **stack, unsigned int line_number);
 void instruction_rotl(stack_t **stack, unsigned int line_number);
 void instruction_rotr(stack_t **stack, unsigned int line_number);
+
+/* instruction4.c */
+void instruction_stack(stack_t **stack, unsigned int line_number);
+void instruction_queue(stack_t **stack, unsigned int line_number);
 
 /* _strtol.c */
 int is_leading_digit(char ascii_char);
