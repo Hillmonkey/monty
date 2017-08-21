@@ -50,4 +50,3 @@ void instruction_pchar(stack_t **stack, unsigned int line_number)
 	putchar(i);
 	putchar('\n');
 }
-
