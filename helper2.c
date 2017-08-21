@@ -24,6 +24,7 @@ void delegate_op(stack_t **stack, char *op, unsigned int line_number)
 		{"mod", instruction_mod},
 		{"pchar", instruction_pchar},
 		{"pstr", instruction_pstr},
+		{"rotl", instruction_rotl},
 		{NULL, NULL}
 	};
 
